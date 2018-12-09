@@ -4,6 +4,7 @@ import {saveAs} from "file-saver";
 
 class JsonToExcel extends Component {
   static propTypes = {
+    text: PropTypes.string,
     className: PropTypes.string,
     data: PropTypes.array.isRequired,
     fileformat: PropTypes.string,
@@ -14,6 +15,7 @@ class JsonToExcel extends Component {
   };
 
   static defaultProps = {
+    text: "Convert Json to Excel",
     className: "json-to-excel",
     fileformat: "csv",
     filename: "json-to-excel",
@@ -78,7 +80,7 @@ class JsonToExcel extends Component {
   }
 
   render() {
-    const {className, style} = this.props;
+    const {className, style,text} = this.props;
 
     return (
       <button
@@ -86,7 +88,7 @@ class JsonToExcel extends Component {
         onClick={this.saveExcel}
         style={style}
       >
-        Convert Json to Excel
+        {text}
       </button>
     );
   }
